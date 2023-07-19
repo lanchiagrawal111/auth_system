@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/" id="home">Home</a>
+        </li>
+        <% if @current_user %>
+          <li class="nav-item">
+            <a class="nav-link" href="/my_blogs"  id="mposts"> My Blogs</a>
+          </li>
+        <% end %>
+      </ul>
+      <div class="d-flex">
+        <% if !@current_user %>
+          <%= link_to "Login", "sign_in", class:"btn btn-outline-dark", style: "margin-right: 10px" %>
+          <%= link_to "Signup", "sign_up", class:"btn btn-outline-dark", style: "margin-right: 10px" %>
+        <% else %>
+          <%= button_to 'Logout', logout_path, method: :delete,class:"btn btn-outline-danger", style: "margin-right: 10px" %>
+          <h5 style="margin-left: 760px">
+            <small class="text-muted">  <%= @current_user.email %> </small>
+            <small class ="border border-dark rounded-circle w-25 p-2  text-primary"> <%= @current_user.id %> </small>
+          </h5>
+        <%end %>
+      </div>
+    </div>
+  </div>
+</nav>
+

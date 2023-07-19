@@ -1,0 +1,35 @@
+
+<section class="text-center dark">
+  <h4 class="mb-5" style="color:black"><strong>My Blogs</strong></h4>
+  <div class="container">
+    <div class="row"> 
+      <% if @blogs.present? %>
+        <% @blogs.each do |blog| %>
+          <div class="col-lg-4 col-md-6 m-4">
+            <div class="card">
+              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">
+                  <%= blog.title %>
+                </h3>
+                <p class="card-text">
+                  <%= blog.description %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>   
+      <% else %>   
+        <div class="col-lg-4 col-md-6 m-4">
+          <h4> You Haven't Created Any Blog. </h4>
+        </div>    
+      <% end %>
+    </div>
+  </div>
+</section>
+  
+  
+
+
+ 

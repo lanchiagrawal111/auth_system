@@ -1,0 +1,64 @@
+<div class="card wrapper">
+  <div class="card-header">
+    <h2 class="card-title d-flex justify-content-between mb-2">
+      <span>Sign up</span>
+    </h2>
+  </div>
+  <%= form_with model: @user, url: sign_up_path do |f| %>
+    <%= render 'shared/errors', object: @user  %>
+    <div class="card-body">
+      <div class="field">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"> <%= f.label :first_name %></span>
+          </div>
+          <%= f.text_field :first_name, class: 'form-control', autofocus: true, required: true %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"> <%= f.label :last_name %></span>
+          </div>
+          <%= f.text_field :last_name, class: 'form-control', autofocus: true, required: true %>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"> <%= f.label :email %></span>
+          </div>
+          <%= f.text_field :email, class: 'form-control', autocomplete: "email", required: true %>
+        </div>
+      </div>
+
+
+      <div class="field">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">  <%= f.label :password %></span>
+          </div>
+          <%= f.password_field :password, autocomplete: "new-password", class:'form-control  mx-sm-3', required: true %>
+        </div>
+      </div>
+
+
+      <div class="field">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default"> <%= f.label :password_confirmation %></span>
+          </div>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control  mx-sm-3', required: true %>
+        </div>
+      </div>
+    </div>
+    <div class ="card-footer">
+      <div class="actions">
+        <%= f.submit "Sign up", class:"btn btn-success", style:"width: 100%" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
